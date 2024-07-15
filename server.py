@@ -5,7 +5,7 @@ import uuid
 
 other_servers = [
     ("192.168.1.127", 9999),
-
+    ("192.168.1.128", 9999),
 ]
 
 clients = {}
@@ -104,3 +104,4 @@ def main(server_ip, server_port):
 
 if __name__ == "__main__":
     main("192.168.1.104", 9999)
+
