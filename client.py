@@ -32,15 +32,24 @@ def send_file(client_socket, filename, recipient):
         data = file.read()
         client_socket.send(data)
 
+def print_help():
+    help_text = """
+    Available commands:
+    /msg [username] [message] - Send a private message to a user
+    /file [username] [filename] - Send a file to a user
+    /list - List all connected users
+    /help - Show this help message
+    /quit - Disconnect from the server
+    """
+    print(help_text)
+
 def main():
     client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     client.connect(("192.168.1.104", 9999))
 
-    #
-    # username = input("Enter your username: ")
-    # client.send(username.encode())
+    username = input("Enter your username: ")
+    client.send(username.encode())
 
-    #
     threading.Thread(target=receive_messages, args=(client,)).start()
 
     while True:
@@ -56,8 +65,17 @@ def main():
             client.send(message.encode())
             print("You have left the chat.")
             break
-        else:
+        elif message == "/help":
+            print_help()
+        elif message.startswith("/msg"):
+            if len(message.split()) < 3:
+                print("Usage: /msg [username] [message]")
+            else:
+                client.send(message.encode())
+        elif message == "/list":
             client.send(message.encode())
+        else:
+            print("Unknown command. Type /help for a list of commands.")
 
     client.close()
 
