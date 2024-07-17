@@ -35,8 +35,8 @@ async def ws_handler(websocket, path):
         connected_servers.remove(websocket)
 
 async def start_ws_server(port):
-    async with websockets.serve(ws_handler, "0.0.0.0", port):
-        print(f"WebSocket Server started and listening on ws://0.0.0.0:{port}")
+    async with websockets.serve(ws_handler, "192.168.1.104", port):
+        print(f"WebSocket Server started and listening on ws://192.168.1.104:{port}")
         await asyncio.Future()  # Run forever
 
 async def connect_to_ws_servers():
@@ -193,11 +193,11 @@ def main(port, websocket_uri):
     server.listen(5)
     print(f"Server started on port {port}.")
 
-    # Start WebSocket server
-    threading.Thread(target=asyncio.run, args=(start_ws_server(port),)).start()
+    loop = asyncio.get_event_loop()
+    loop.create_task(start_ws_server(port))
+    loop.create_task(connect_to_ws_servers())
 
-    # Connect to other WebSocket servers
-    threading.Thread(target=asyncio.run, args=(connect_to_ws_servers(),)).start()
+    threading.Thread(target=loop.run_forever).start()
 
     while True:
         client_socket, addr = server.accept()
