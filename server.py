@@ -15,7 +15,8 @@ user_last_message_time = {}  # key: username, value: last message timestamp
 connected_servers = set()
 websocket_uris = [
     "ws://192.168.1.104:5551",
-    "ws://192.168.1.217:5552"
+    "ws://192.168.1.127:5552",
+
 ]
 
 async def broadcast_via_websockets(message):
@@ -35,8 +36,8 @@ async def ws_handler(websocket, path):
         connected_servers.remove(websocket)
 
 async def start_ws_server(port):
-    async with websockets.serve(ws_handler, "0.0.0.0", port):
-        print(f"WebSocket Server started and listening on ws://0.0.0.0:{port}")
+    async with websockets.serve(ws_handler, "192.168.1.104", port):
+        print(f"WebSocket Server started and listening on ws://192.168.1.104:{port}")
         await asyncio.Future()  # Run forever
 
 async def connect_to_ws_servers():

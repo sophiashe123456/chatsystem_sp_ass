@@ -1,7 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: UTF-8 -*-
-
-
 import socket
 import threading
 import os
@@ -28,13 +24,13 @@ def send_file(client_socket, filename, recipient):
 
 def main():
     client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    client.connect(("192.168.1.104", 9999))
+    server_ip = input("Enter the server IP address: ")
+    server_port = int(input("Enter the server port: "))
+    client.connect((server_ip, server_port))
 
-    #
-    # username = input("Enter your username: ")
-    # client.send(username.encode())
+    username = input("Enter your username: ")
+    client.send(username.encode())
 
-    #
     threading.Thread(target=receive_messages, args=(client,)).start()
 
     while True:
