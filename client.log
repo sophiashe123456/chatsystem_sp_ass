@@ -1,0 +1,45 @@
+2024-07-15 15:21:17,679 Received message: Password: 
+2024-07-15 15:21:17,679 Received message: Authentication failed
+2024-07-15 15:25:46,627 Received message: Password: 
+2024-07-15 15:25:46,629 Received message: Authentication failed
+2024-07-15 15:28:30,342 Authentication successful for username: sophia
+2024-07-15 15:28:30,344 Received message: Password: 
+2024-07-15 15:28:30,344 Received message: Authentication failed
+2024-07-15 15:29:31,395 Authentication successful for username: nana
+2024-07-15 15:29:31,397 Received message: Password: 
+2024-07-15 15:29:31,397 Received message: Authentication failed
+2024-07-15 15:39:02,508 Authentication successful for username: haha
+2024-07-15 15:40:30,401 Authentication successful for username: sophia
+2024-07-15 15:40:30,403 Received message: New password: 
+2024-07-15 15:40:30,403 Received message: Registration successful
+2024-07-15 15:40:30,403 Received message: Welcome sophia! Type /help for a list of commands.
+2024-07-15 15:42:34,781 Authentication successful for username: nana
+2024-07-15 15:42:34,782 Received message: New password: 
+2024-07-15 15:42:34,782 Received message: Registration successful
+2024-07-15 15:42:34,783 Received message: Welcome nana! Type /help for a list of commands.
+2024-07-15 15:43:32,048 Authentication successful for username: hello
+2024-07-15 15:43:32,049 Received message: New password: 
+2024-07-15 15:43:32,049 Received message: Registration successful
+2024-07-15 15:43:32,050 Received message: Welcome hello! Type /help for a list of commands.
+2024-07-15 15:44:08,204 Sent message to nana: woaini
+2024-07-15 15:44:08,205 Received message: sophia: sophia (2024-07-15 15:44:08): woaini
+2024-07-15 15:44:25,646 Received message: Group feature not implemented yet.
+2024-07-15 15:44:46,807 Received message: Group feature not implemented yet.
+2024-07-15 15:47:49,512 Sent username: sophia
+2024-07-15 15:47:49,513 Sent password: sophia11
+2024-07-15 15:47:49,513 Received response: Username: 
+2024-07-15 15:47:49,513 Authentication successful for username: sophia
+2024-07-15 15:47:49,517 Received message: Password: 
+2024-07-15 15:47:49,517 Received message: Authentication failed
+2024-07-15 15:48:32,948 Sent username: nana
+2024-07-15 15:48:32,949 Sent password: nana123
+2024-07-15 15:48:56,320 Sent username: nanana
+2024-07-15 15:48:56,321 Sent password: nananan23
+2024-07-15 15:48:56,321 Received response: Username: 
+2024-07-15 15:48:56,321 Authentication successful for username: nanana
+2024-07-15 15:48:56,321 Received message: New password: 
+2024-07-15 15:48:56,323 Received message: Registration successful
+2024-07-15 15:48:56,323 Received message: Welcome nanana! Type /help for a list of commands.
+2024-07-15 15:59:51,406 Received response: 
+2024-07-15 15:59:51,406 Authentication successful for username: nana
+2024-07-15 15:59:51,406 Sent message to nananan23: nihao
