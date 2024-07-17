@@ -15,8 +15,7 @@ user_last_message_time = {}  # key: username, value: last message timestamp
 connected_servers = set()
 websocket_uris = [
     "ws://192.168.1.104:5551",
-    "ws://192.168.1.127:5552",
-
+    "ws://192.168.1.127:5552"
 ]
 
 async def broadcast_via_websockets(message):
@@ -36,18 +35,21 @@ async def ws_handler(websocket, path):
         connected_servers.remove(websocket)
 
 async def start_ws_server(port):
-    async with websockets.serve(ws_handler, "192.168.1.104", port):
-        print(f"WebSocket Server started and listening on ws://192.168.1.104:{port}")
+    async with websockets.serve(ws_handler, "0.0.0.0", port):
+        print(f"WebSocket Server started and listening on ws://0.0.0.0:{port}")
         await asyncio.Future()  # Run forever
 
 async def connect_to_ws_servers():
-    for uri in websocket_uris:
-        try:
-            websocket = await websockets.connect(uri)
-            connected_servers.add(websocket)
-            print(f"Connected to WebSocket server: {uri}")
-        except Exception as e:
-            print(f"Failed to connect to WebSocket server: {uri}, error: {e}")
+    while True:
+        for uri in websocket_uris:
+            if uri not in connected_servers:
+                try:
+                    websocket = await websockets.connect(uri)
+                    connected_servers.add(websocket)
+                    print(f"Connected to WebSocket server: {uri}")
+                except Exception as e:
+                    print(f"Failed to connect to WebSocket server: {uri}, error: {e}")
+        await asyncio.sleep(10)  # 每10秒检查一次
 
 def broadcast(message, sender_socket):
     with lock:
@@ -181,7 +183,10 @@ def list_groups(client_socket):
 
 def main(port, websocket_uri):
     global websocket_uris
-    websocket_uris.remove(websocket_uri)  # Remove the current server's WebSocket URI from the list
+    if websocket_uri in websocket_uris:
+        websocket_uris.remove(websocket_uri)  # Remove the current server's WebSocket URI from the list
+    else:
+        print(f"Warning: {websocket_uri} not found in websocket_uris")
 
     server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     server.bind(("0.0.0.0", port))
