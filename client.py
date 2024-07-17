@@ -34,20 +34,27 @@ def main():
     threading.Thread(target=receive_messages, args=(client,)).start()
 
     while True:
-        message = input()
-        if message.startswith("/file"):
-            parts = message.split(maxsplit=2)
-            if len(parts) < 3:
-                print("Usage: /file [recipient] [filename]")
-                continue
-            _, recipient, filename = parts
-            send_file(client, filename, recipient)
-        elif message == "/quit":
-            client.send(message.encode())
-            print("You have left the chat.")
+        try:
+            message = input()
+            if message.startswith("/file"):
+                parts = message.split(maxsplit=2)
+                if len(parts) < 3:
+                    print("Usage: /file [recipient] [filename]")
+                    continue
+                _, recipient, filename = parts
+                send_file(client, filename, recipient)
+            elif message == "/quit":
+                client.send(message.encode())
+                print("You have left the chat.")
+                break
+            else:
+                client.send(message.encode())
+        except BrokenPipeError:
+            print("Connection to the server was lost.")
             break
-        else:
-            client.send(message.encode())
+        except Exception as e:
+            print(f"An error occurred: {e}")
+            break
 
     client.close()
 
