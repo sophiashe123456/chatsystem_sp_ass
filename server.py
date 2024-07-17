@@ -15,7 +15,7 @@ user_last_message_time = {}  # key: username, value: last message timestamp
 connected_servers = set()
 websocket_uris = [
     "ws://192.168.1.104:5551",
-    "ws://192.168.1.104:5552"
+    "ws://192.168.1.127:5552"
 ]
 connections_made = set()
 
