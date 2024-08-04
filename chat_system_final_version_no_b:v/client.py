@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 # -*- coding: UTF-8 -*-
-'''=================================================
-@Author: Group 7：“Flower bottle" vases 
-         Group Members: Yixin Chen, Zhiyang She, Jue Wang, Wenjiao Guo
-=================================================='''
+'''==========================================================
+Group 7：“Flower bottle" vases 
+Group Members: Yixin Chen, Zhiyang She, Jue Wang, Wenjiao Guo
+=============================================================='''
 import asyncio
 import websockets
 import argparse
