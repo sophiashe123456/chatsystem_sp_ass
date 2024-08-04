@@ -152,3 +152,52 @@ Here is an example chat session with the commands, sophia and jojo are the only 
    - Jojo sees: `[Receive file.txt from Group haha sophia]`.
 
 If client nana is in the group, she should receive the message and file same as jojo and sophia at the same time.
+## Testing plan
+1. Testing Objectives
+Verify the functionality, security, performance, and code quality of the chat system, ensuring it meets expectations and identifying potential vulnerabilities and areas for improvement.
+
+2. Testing Methods
+Test Type	Specific Test Content
+Functional	
+- Message Functionality: Test sending and receiving text messages, private and group chats, special characters, and emojis
+- User Management: Test user registration, login, logout, and ensure usernames do not contain spaces
+- File Transfer: Test file upload and download, performance, and stability of large file transfers
+
+Security	
+- Encryption/Decryption: Test RSA and AES encryption/decryption functionality, upgrade from AES-128 to AES-256
+- Key Exchange: Test the integrity and authentication of the key exchange process, simulate man-in-the-middle attacks
+- Input Validation: Validate and sanitize user inputs and filenames to prevent injection and directory traversal attacks
+- Intentional Backdoors: Identify and exploit five intentional backdoor vulnerabilities
+
+Performance
+- Concurrent User Handling: Simulate high concurrent user operations, test system response and stability
+- File Transfer Efficiency: Test speed and success rate of transferring files of different sizes, optimize transfer methods
+
+Code Quality	
+- Code Style: Use Pylint to check code style consistency, address line length issues and unused variables
+- Modularity: Break down large functions into smaller units, standardize string formatting (prefer f-strings)
+- Documentation and Comments: Ensure detailed comments throughout the code, enhance README file with setup instructions and security warning
+
+3. Testing Tools
+Tool Type	Specific Tools
+Automated Testing Tools	Pylint, DeepSource, Snyk
+Manual Review Tools	Code Review, Penetration Testing
+Performance Testing Tools	Apache JMeter, Locust
+
+4. Testing Process
+Stage	Specific Content
+Preparation	
+- Set up testing environment: Configure test servers and clients, install testing tools
+- Prepare test data: Create test users and files, prepare test cases and scripts
+
+Execution	
+- Functional Testing: Execute message functionality, user management, and file transfer tests
+- Security Testing: Perform encryption/decryption, key exchange, input validation, and intentional backdoor tests
+- Performance Testing: Use tools to simulate high concurrent user operations, record response times and performance data
+- Code Quality Testing: Use Pylint to check code quality, manually review comments and documentation
+
+Analysis and Improvement	
+- Analyze Test Results: Evaluate completeness and correctness of functionalities, security, performance, and code quality
+- Submit Test Report: Summarize identified issues and improvement suggestions, submit a detailed report
+- Issue Resolution and Retesting: Fix issues based on the report, optimize code, and retest to ensure problems are resolved
+
