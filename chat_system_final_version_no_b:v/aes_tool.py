@@ -1,3 +1,7 @@
+'''==========================================================
+Group 7：“Flower bottle" vases 
+Group Members: Yixin Chen, Zhiyang She, Jue Wang, Wenjiao Guo
+=============================================================='''
 from Crypto.Cipher import AES
 from Crypto.Util.Padding import pad, unpad
 from Crypto.Random import get_random_bytes
