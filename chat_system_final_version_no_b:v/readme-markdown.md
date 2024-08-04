@@ -1,4 +1,7 @@
 # Group 7: "Flower bottle" vases Chat System
+'''==========================================================
+Group Members: Yixin Chen, Zhiyang She, Jue Wang, Wenjiao Guo
+=============================================================='''
 
 This is a simple socket-based chat system based on the Python programming language that supports the following features:
 
