@@ -1,12 +1,9 @@
 #!/usr/bin/env python
 # -*- coding: UTF-8 -*-
-'''=================================================
-@Project -> File: chatsystem4 -> server.py
-@IDE: PyCharm
-@Author: YixinChen
-@Date: 2024/7/18 09:45
-@Desc: to be continued ...
-=================================================='''
+'''==========================================================
+Group 7：“Flower bottle" vases 
+Group Members: Yixin Chen, Zhiyang She, Jue Wang, Wenjiao Guo
+=============================================================='''
 import asyncio
 import websockets
 import time
