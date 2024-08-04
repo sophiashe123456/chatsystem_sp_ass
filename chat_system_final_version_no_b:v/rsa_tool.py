@@ -1,3 +1,7 @@
+'''==========================================================
+Group 7：“Flower bottle" vases 
+Group Members: Yixin Chen, Zhiyang She, Jue Wang, Wenjiao Guo
+=============================================================='''
 from cryptography.hazmat.primitives.asymmetric import rsa
 from cryptography.hazmat.primitives import serialization
 from cryptography.hazmat.primitives.asymmetric import padding
